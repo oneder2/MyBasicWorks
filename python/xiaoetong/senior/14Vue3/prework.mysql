@@ -1,0 +1,12 @@
+create database user_api;
+use user_api;
+create table items(
+    id int primary key auto_increment,
+    name varchar(255) not null
+);
+
+insert into items (name) values ('Item 1');
+insert into items (name) values ('Item 2');
+insert into items (name) values ('Item 3');
+
+select * from items;

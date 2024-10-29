@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!-- 将vue.js文件导入到你要用的html中来-->
+    <script src="vue.js"></script>
+</head>
+<body>
+<!-- v-model:表单  双向绑定指令 -->
+<div id="div2">
+  <input type="text" v-model="b" placeholder="请输入你的数据">
+  <p>{{b}}</p>
+</div>
+<!--<div id="app">{{a}}</div>-->
+
+<script>
+  // 创建Vue实例
+  let vue11 = new Vue({
+      // 挂载点
+      el:'#div2',
+      // data:数据源（键值对的形式）
+      data:{
+        b:''
+      }
+  });
+</script>
+</body>
+</html>

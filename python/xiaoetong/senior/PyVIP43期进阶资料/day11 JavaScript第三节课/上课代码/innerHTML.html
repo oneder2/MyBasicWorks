@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <style>-->
+<!--        .btnstyle {-->
+<!--            background-color: blue;-->
+
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<div id="div1">
+    <input type="button" value="按钮" id="btn1">
+</div>
+<script>
+    // 根据id获取标签对象
+    // innerHTML:获取或者修改元素内的文字，包含标签和样式
+    let a2 = document.getElementById('btn1')
+    // console.log(a2.innerHTML);
+    // a2.innerHTML = '星期五';
+    // 可以给标签添加属性  在标签里面class=""
+    a2.className = 'btnstyle';
+    a2.name = 'username';
+    // js代码来设置样式呢？
+    a2.style.background = 'red';
+    a2.style.fontSize = '50px';
+
+    //  设置div标签width和height各100px的代码怎么写？
+    a2.style.width = '100px';
+    a2.style.height = '100px';
+
+    //
+    let a3 = document.getElementById('div1');
+    a3.style.width = '100px';
+    a3.style.height = '100px';
+
+    休息十分钟
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+package sysutilities;
+
+//import static org.junit.Assert.assertTrue;
+//
+//import tests.TestsSupport;
+
+/**
+ * @author Gellar, Muyao Niu, UID120893179
+ * The reason I set the name of Scanner at project 2 as nmyScanner
+ * is because my name in Chinese order, is Niu Mu Yao, which is nmy,
+ * same as TS for Taler Swift. 
+ * I am apologize for my name trouble. 
+ */
+
+public class Name {	
+	
+	private String Firstname = "";
+	private String Midname = "";
+	private String Lastname = "";
+	private char separator = ',';
+	
+	private String Nickname = "";
+	
+	private  static int NAMECOUNT = 0;
+	
+	//	constructor function, no input element
+	public Name() {
+		this.Firstname = "NOFIRSTNAME";
+		this.Midname = "NOMIDDLENAME";
+		this.Lastname = "NOLASTNAME";
+		this.separator = '#';
+		NAMECOUNT++;
+	}
+
+	/**	2 parameters constructor function
+	 * @newFirstname input first name 
+	 * @newLastname input last name
+	 */
+	public Name(String newFirstname, String newLastname) {
+		this.Firstname = newFirstname;
+		this.Lastname = newLastname;
+		NAMECOUNT++;
+	}
+	
+	/**	3 parameters constructor function
+	 * @newFirstname input first name
+	 * @newMidname input mid name 
+	 * @newLastname input last name
+	 */
+	public Name(String newFirstname, String newMidname, String newLastname) {
+		this.Firstname = newFirstname;
+		this.Midname = newMidname;
+		this.Lastname = newLastname;
+		NAMECOUNT++;
+	}
+	
+	
+	/**	4 parameters constructor function
+	 * @newFirstname input first name
+	 * @newMidname input mid name
+	 * @newLastname input last name
+	 * @newSeperator input separator
+	 * 	if the newSeperator is valid, update
+	 * 	else, use the default separator comma.
+	 */
+	public Name(String newFirstname, String newMidname, String newLastname, char newSeparator) {
+		if (validSeparator(newSeparator)) {
+			separator = newSeparator;
+		}else {
+			separator = ',';			
+		}
+		this.Firstname = newFirstname;
+		this.Midname = newMidname;
+		this.Lastname = newLastname;
+		NAMECOUNT++;
+	}
+	
+	
+	// return the first name of object
+	public String getFirstname() {
+		return this.Firstname;
+	}
+	
+	
+	// return the mid name of object	
+	public String getMiddlename() {
+		return this.Midname;
+	}
+	
+	
+	// return the last name of object
+	public String getLastname() {
+		return this.Lastname;
+	}
+	
+	
+	// change || set the nick name of object
+	public void setNickname(String newNickname) {
+		this.Nickname = newNickname;
+	}
+	
+	
+	// return the nick name of object
+	public String getNickname() {
+		return this.Nickname;
+	}
+	
+	
+	// change || set the separator of object
+	public void setSeparator(char newSeparator) {
+		if (Name.validSeparator(newSeparator))
+			this.separator = newSeparator;
+	}
+	
+	
+	// return the separator of object
+	public char getSeparator() {
+		return this.separator;
+	}
+	
+	
+	// to just if two Name object is equal
+	// if yes, return true
+	// if not, return false
+	public boolean equals(Object obj) {
+		if (obj == null || getClass() != obj.getClass()) 
+			return false;
+		if (obj == this)
+			return true;
+		
+		Name name
+		return true;
+	}
+	
+	
+	// build the name segments into whole name, separated by separator
+	public String toString() {
+		String output = "";
+		
+		output += this.Lastname + this.separator;
+		
+		output += this.Firstname;
+		
+		if (this.Midname != "" || this.Nickname != "")
+			output += this.separator;
+		
+//		if(this.Midname != "")
+		output += this.Midname;
+		
+		if(this.Nickname != "")
+			output += "(" + this.Nickname + ")";
+		return output;
+	}
+	
+	
+	/** return: 
+	* 	negative value if the current object precedes the parameter in alphabetical order, 
+	*	0 if the current object is equal to the parameter, 
+	*	positive value otherwise
+	*/
+	public int compareTo(Name anotherName) { 
+		int lastNameCompare = this.Lastname.compareTo(anotherName.Lastname);
+		if (lastNameCompare != 0)
+			return lastNameCompare;
+		
+		int firstNameCompare = this.Firstname.compareTo(anotherName.Firstname);		
+		if (firstNameCompare != 0)
+			return firstNameCompare;
+		
+		int midNameCompare = this.Midname.compareTo(anotherName.Midname);
+		if (midNameCompare != 0)
+			return midNameCompare;
+		
+		return 0;
+	}
+	
+	
+	// return how much Name objects have been created
+	public static int getNumberOfNameObjects() {
+		return NAMECOUNT;
+	}
+
+	
+	/**@parameter inputName
+	 * 		input a Name 
+	 * @parameter letterCase, 
+	 * 		if letterCase == true, turn name to upper case
+	 * 		else if letterCase == false, turn name to lower case
+	 * @return a Name object after operation mentioned.
+	 */
+	public static Name normalize(Name inputName, boolean letterCase) {
+		if (inputName == null)
+			return null;
+		
+		String outputFirstname = "";
+		String outputMidname = "";
+		String outputLastname = "";
+	
+		if (letterCase) {
+			outputFirstname = inputName.Firstname.toUpperCase();
+			if (inputName.Midname != "")
+				outputMidname = inputName.Midname.toUpperCase();
+			outputLastname = inputName.Lastname.toUpperCase();
+	
+		}else { //not letterCase
+			outputFirstname = inputName.Firstname.toLowerCase();
+			if (inputName.Midname != "")
+				outputMidname = inputName.Midname.toLowerCase();
+			outputLastname = inputName.Lastname.toLowerCase();
+		}
+		
+		Name outputName = new Name(outputFirstname, outputMidname, outputLastname, ',');
+		
+		return outputName;
+	}
+	
+
+	/**
+	 * @separator char parameter,
+	 * returns true if separator is valid
+	 * return false if not 
+	 */
+	private static boolean validSeparator(char separator) {
+		if (separator == '#' || separator == ',' || separator == '-')
+			return true;
+		else 
+			return false;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

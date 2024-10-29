@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js">
+    </script>
+</head>
+<body>
+<!-- 根据条件来动态的插入和移除元素  -->
+<div id="abb">
+<!--    v-if:是删除标签元素-->
+    <button v-if="b">+1</button>
+<!--    v-show:是通过style样式的display：none来隐藏了-->
+    <button v-show="c">+2</button>
+    <button @click="xianshi">点击1</button>
+    <button @click="show">点击2</button>
+</div>
+<script>
+    let app = new Vue({
+        el:'#abb',
+        data:{
+            b:true,
+            c:true
+        },
+        methods:{
+            xianshi(){
+                // 取反
+                this.b = !this.b
+            },
+            show(){
+                this.c = !this.c
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+
+
+
+
+
+
+【创建项目】
+1.双击打开pycharm，点击新建项目
+2.项目设置
+	- 勾选[继承全局站点软件包]
+	- 勾选[可用于所有项目]
+	- 取消勾选[创建main.py欢迎脚本]
+	- 点击创建
+3.项目名称右键--新建--python文件
+4.输入文件名--回车
+
+
+
+
+
+
+【python规范 一句话教程】
+1.数字与字符串	
+	数字正常写 字符串加引号！
+	1.引号要用英文的！
+	2.单引号 双引号 随便！
+	
+2.注释
+	就是对代码解释和说明。
+	为了让给别的程序员能看得懂我们的代码。
+	对我们的代码做笔记！
+	# 注释的内容
+	
+3.标点符号
+	用英文的！用英文的！用英文的！用英文的！
+	
+4.变量
+	变量 = 数据   将这个数据存放在名为变量的内存中
+	输入：
+		print(变量)
+
+
+
+
+【项目实战】：爬取抖音快手无水印视频。
+什么是爬虫。
+	网络爬虫 网络蜘蛛 网络机器人
+	从各种各样的网站上去爬取数据。
+	视频  音频  图片  文档  
+
+1.找到视频的网址。
+	url = "放一个网址"
+	
+	1.打开开发者工具。
+		F12  笔记本电脑  Fn切换F1-F12的功能。
+	2.选中网络(network)   选中媒体(media)
+		找不到网络： 点后面的 +号 >>号
+	3.浏览器左上角刷新 就能看见一条数据
+	4.点击这条数据 就能看见一个链接。
+https://v2.kwaicdn.com/upic/2023/01/08/18/BMjAyMzAxMDgxODI5NDZfMTY1OTUzODk0XzkzMDY1MjU0MjU5XzFfMw==_b_Ba9edc4062757a73236ae66ca11319f39.mp4?pkey=AAXbJfkMkX69g74f_QOropr8XA6WcMugQXfVefohSEtmpPVoVp9gA1K9-4-GBC3OACz3cRupeZyJC2sfR_s5QBfnC5wVs7b7a48PijGdpyPGzNGONy1xpRIKa14V3TgNGYQ&tag=1-1675080298-unknown-0-senfa9qbkx-84c171e21831fe2d&clientCacheKey=3x75w2dicwygxa6_b.mp4&di=af00d725&bp=10004&tt=b&ss=vp
+https://v21517yn14pcfzvanvo85we9dxxzzqvwb.mobgslb.tbcache.com/v1.kwaicdn.com/upic/2023/01/25/19/BMjAyMzAxMjUxOTA2MThfNjE5NzUwNDIyXzk0NTg2NzkyNjY0XzFfMw==_b_B62cc7b91cf37e6bbfe264502ab68b3ed.mp4?pkey=AAXeQDbooLNKEfNrl37PQpvVGu5e0xSMmV7Y-DR84Xm5pFkaqcejlGSUcFTn_yFKzBIArvIMbqtcC-KT-2-IE8RQl643YRTEvIctQWiVLSN2ddbabSa_gpz1eYOUK7jd80U&tag=1-1675080429-unknown-0-tzkigjldjn-9813395f25279432&clientCacheKey=3xbxj4ctauj43ys_b.mp4&di=af00d725&bp=10004&tt=b&ss=vp&ali_redirect_ex_hot=66666800&ali_redirect_ex_beacon=1
+
+	100%  找我！
+
+2.获取网址里面的数据。(最重要的知识！)
+	什么是模块！工具包
+	去逛街       手机   
+	上课         电脑  
+	想要向某一个网址发起请求。 模块  requests
+	
+	1.安装模块
+		windows：按下win+r键 输入cmd回车 输入pip install requests回车
+		mac：    搜索'终端'给它打开      输入pip3 install requests回车
+		
+	2.导入模块
+		在代码里面！在代码里面！在代码里面！在代码里面！在代码里面！
+		import requests
+	
+	3.使用模块
+		手机里面有一个付款功能。给20块钱  得到奶茶
+		奶茶 = 手机.付款(20)
+		
+		手机里面有一个拍照功能。给一个女神  得到美照
+		美照 = 手机.拍照(女神)
+		
+		requests模块里面有一个get功能  给它一个网址  给我们一个响应。
+		res = requests.get(url)
+		
+		
+	【问题】pip不是内部命令。 压根就没有安装python  安装有问题。
+	【问题】输入进去 出现一段红色的英文 requests
+	【问题】输入进去以后 过了一会儿 出现大片大片的红色英文。网络不稳定。
+	下课以后 微信给你们 根据你的症状 对症下药！
+	
+3.保存在自己的电脑上。
+	强调: 不要自己去创建什么文件！！！ 代码会帮我们搞定。
+	
+	打开文件：
+	open('文件名', '打开方式')  王志林！
+	
+	打开方式:
+		1.读还是写的问题！
+		2.文本文件还是二进制文件！
+		                        文本文件txt  二进制文件mp3 mp4 avi rmvb jpg png bmp exe ppt doc xlsx。。。
+		读  从文件中读取数据     r(read)        rb(read-binary)
+		写  向文件中写入数据     w(write)       wb(write-binary)
+		
+		成绩单.xlsx   打开它  想看一下月亮同学  语文成绩是多少！  读！
+		成绩单.xlsx   打开它  把李海超同学英语成绩填进去！        写！
+
+	写入文件：
+		
+
+
+
+
+
+
+【第2节课内容】
+1.B站的视频的链接怎么找到！
+	a.打开开发者工具-网络-全部-刷新页面！
+	b.点击大小-让数据从大到小排列-第一个一般就是！
+	c.点击这条数据-标头中复制这个链接。
+	
+2.爬虫的伪装！
+	1.为什么要伪装？
+	网站搭建出来 肯定是希望有人去请求他！ 
+	不希望不靠谱不明来源的请求！
+	网站的策略:收到请求的时候 检查一些东西。
+		1.你是用什么浏览器来请求我的？
+		2.你有没有注册网站的账号，登录了没有？
+		3.你是从哪一个网页跳转过来的？
+	
+	2.伪装的格式
+	既然我们知道了这个事情。又想去请求它。伪装！
+	格式：
+	headers = {'user-agent': '浏览器标识', 'cookie': '登录标识', 'referer': '引荐页'}
+	
+	3.数据的填充
+	浏览器标识  登录标识  引荐页 去哪里找？
+	就在前面找到的网址的下面！
+	
+	4.去请求网址的时候，带上伪装的信息
+	res = requests.get(url, headers=headers)
+	
+3.python实现一个基本的剪辑工作！
+# 安装 pip install moviepy
+from moviepy.editor import *   # 从moviepy的editor里面去导入所有的功能！
+# 1.加载素材
+视频数据 = VideoFileClip('xxx.mp4')
+音频数据 = AudioFileClip('xxx.mp3')
+# 2.剪辑工作
+# 2.剪辑工作
+最终数据 = 视频数据.set_audio(音频数据)
+# 3.导出文件
+最终数据.write_videofile('完整视频.mp4')

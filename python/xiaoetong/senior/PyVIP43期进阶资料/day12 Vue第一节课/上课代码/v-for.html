@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <!--   遍历元素     -->
+        <li v-for="a in item">{{a}}</li>
+        <!--    在python中我们遍历字典的时候有几个临时变量？    -->
+        <li v-for="(value,key) in items">{{key}}:{{value}}</li>
+        <li v-for="(key,value) in items">{{key}}:{{value}}</li>
+    </ul>
+</div>
+<script>
+    let app = new Vue({
+        el:'#div1',
+        data:{
+            item:[1,2,3,4,5],
+            // 对象
+            items:{
+                name:'张三',
+                age:12,
+                address:'北京'
+            }
+        }
+    })
+</script>
+</body>
+</html>

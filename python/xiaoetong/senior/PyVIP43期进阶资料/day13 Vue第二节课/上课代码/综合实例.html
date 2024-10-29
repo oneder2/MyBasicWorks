@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="newitem" placeholder="添加新项目">
+    <button @click="addNewItem">添加</button>
+    <p v-if="isEmpty">列表为空！</p>
+    <p>列表项目总数：{{count}}</p>
+    <hr>
+    <ol>
+        <li v-for="(item,index) in items">
+<!--            // v-if="index > 0"  当你是最前面的元素则没有向上移动的按钮-->
+            <a href="#" @click="moveItem(index,-1)" v-if="index > 0">向上移动</a>
+            <span>{{item}}:{{index}}</span>
+<!--           v-if="index < items.length - 1"  当你是最后一个元素时候你则没有向下移动的按钮  -->
+<!--            长度和索引是相等的吗？   索引是从0开始   长度是数组有几个元素 -->
+            <a href="#" @click="moveItem(index,1)" v-if="index < items.length-1">向下移动</a>
+            <a href="#javascript" @click="deleteItem(index)">删除</a>
+            
+        </li>
+    </ol>
+</div>
+<script>
+    // 创建一个vue实例
+    let app = new Vue({
+        el: '#app',
+        data: {
+            // 初始化列表项数组
+            items:['学习java','学习Vue','学习python'],// 0-2
+            // 输入框绑定的数据
+            newitem:''
+        },
+        computed:{
+            //
+            isEmpty(){
+                // 判断items里面的元素是否为0,满足则返回true
+                return this.items.length === 0;
+            },
+            count(){
+                // 返回items的长度
+                return this.items.length;
+            }
+        },
+        // 增加的操作
+        methods:{
+            addNewItem(){
+                // trim()去除你输入的字符串两边的空白字符串
+                let newItem1 = this.newitem.trim()
+                // 判断你输入的是否是一个空的字符串，如果不空才能添加
+                if (newItem1){
+                    // 把输入的字符串添加到items数组中
+                    this.items.push(newItem1)
+                    // 清空输入框
+                    this.newitem = ''
+                }
+            },
+            deleteItem(index){
+                // 数组哪个方法去删的？
+                this.items.splice(index,1)
+            },
+            moveItem(currentindex,direction){
+                // 计算新的索引，direction只有两个值  -1上移动   1下移动
+                let newindex = currentindex  + direction // 0 + 1 = newindex 1
+                // 判断满足在数组范围内
+                if (newindex >= 0 && newindex < this.items.length){
+                    // 从原来的位置。currentindex当前索引，1表示移除一个元素
+                    // 获取删除的这个元素  item = '学习Vue'
+                    let item = this.items.splice(currentindex,1)[0] // 0,1
+                    // console.log(item)
+                    // 把移除这个元素添加到移动后的这个位置来
+                    this.items.splice(newindex,0,item)// 1,0,'学习Vue'
+                }
+            }
+            
+        }
+    })
+
+    // 休息一会  十分钟
+</script>
+</body>
+</html>

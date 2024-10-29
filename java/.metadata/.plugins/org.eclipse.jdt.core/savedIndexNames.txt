@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+/home/gellar/Desktop/Program/Java/.metadata/.plugins/org.eclipse.jdt.core
+3594146206.index
+4175466211.index
+1865797976.index
+1073269240.index

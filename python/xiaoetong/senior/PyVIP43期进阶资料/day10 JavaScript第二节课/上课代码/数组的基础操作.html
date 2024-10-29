@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let alist = [1,3,5,7];
+    // 往这个alist数组中添加一个'a'
+    // python当中添加元素用哪个函数：append
+    // push():往数组当中末尾添加一个或者多个元素
+    // alist.push('b');
+    // console.log(alist);
+    // pop():删除数组中最后一个元素
+    // alist.pop()
+    // console.log(alist);
+
+    // copywithin():批量复制
+    // 按照指定范围复制数组中的部分内容，然后将他们插入到指定索引开始的位置
+    // let list1 = [0,1,2,3,4,5, 6, 7, 8, 9];
+    // 从list1中复制索引0开始的内容，然后插入到5开始的位置
+    // list1.copyWithin(5,0);
+    // console.log(list1); // [0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+    // 从list1中复制索引5开始的内容，然后插入到0开始的位置
+    // list1.copyWithin(0,5);
+    // console.log(list1); // [5, 6, 7, 8, 9, 5, 6, 7, 8, 9]
+    // 复制索引从0开始到3结束的内容，然后插入到索引为4的位置
+    // list1.copyWithin(4,0,3);
+    // console.log(list1); // [0, 1, 2, 3, 0, 1, 2, 7, 8, 9]
+
+    // list1.copyWithin(2,0,6);
+    // console.log(list1); // [0,1,0,1,2,3,4,5,8,9]
+    // 支不支持负索引呢？
+    // list1.copyWithin(-4,-7,-3);
+    // console.log(list1);  // [0, 1, 2, 3, 4, 5, 3, 4, 5, 6]
+
+    // fill():填充数组
+    // 可以向一个已有的数组中插入全部或者部分相同的值
+    // let list2 = [0,0,1,1,2];
+    // 想用5填充list2
+    // list2.fill(5);
+    // console.log(list2); // [5, 5, 5, 5, 5]
+    // 用6填充索引大于等于3的元素
+    // list2.fill(6,3);
+    // console.log(list2); // [0, 0, 1, 6, 6]
+    // 用7填充索引大于等于1小于3的元素
+    // list2.fill(7,1,3);
+    // console.log(list2);  // [0, 7, 7, 1, 2]
+    // list2.fill(8,-4,-1);
+    // console.log(list2); // [0, 8, 8, 8, 2]
+
+
+
+    // splice(start，num，elN..):方法，根据下标来删除和添加元素
+    let alist3 = [2,3,4,5,6];
+    // 往索引为1的位置添加一个元素'a'
+    // alist3.splice(1,0,'a');
+    // console.log(alist3); // [2, 'a', 3, 4, 5, 6]
+    // 从索引为2开始，往后去删除两个元素
+    // alist3.splice(2,2);
+    // console.log(alist3); // [2, 3, 6]
+    // 从索引2开始去删2个元素，然后插入你想要插入的元素
+    alist3.splice(2,2,'a','b','c');
+    console.log(alist3); // [2, 3, 'a', 'b', 6]
+</script>
+</body>
+</html>

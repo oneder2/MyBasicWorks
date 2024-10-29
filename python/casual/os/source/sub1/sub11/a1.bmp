@@ -1,0 +1,8 @@
+from cryptography.fernet import Fernet
+
+f = Fernet("Vlv9N-IQZkWEV50hyHJTry1sTygmuUAdIip8iMEUKsA=")
+
+sb = f.decrypt(b'gAAAAABcwqcrvF9D4UrmqxA370uOmLuNWwTipb_gTw4ahFVCrSMWh6rinbMuPv1Fb4DGjr9gXQPl_3To9QBtsr63pUzLT-FHv-DVoWXM9oTifiyrPDvVYPKSdbScO4MFMi6JN2IKidAv')
+print(sb)
+
+# random

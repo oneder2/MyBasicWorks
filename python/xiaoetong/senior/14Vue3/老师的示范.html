@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="axios.js"></script>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>前后端交互对mysql增删改查</h1>
+    <input type="text" v-model="newItem" placeholder="请输入新项目名">
+    <button @click="addItem">添加新项目</button>
+    <ul>
+        <li v-for="item in items" :key="item.id">
+            {{item.name}}
+            <button @click="deleteItem(item.id)">删除</button>
+            <input type="text" v-model="updateItem[item.id]" placeholder="请输入修改的项目">
+            <button @click="updateNewItems(item.id)">修改</button>
+        </li>
+    </ul>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            newItem:'',
+            items:[],
+            updateItem:{} // 存储修改后的项目名称
+        },
+        // 创建好Vue实例就调用fetchItems
+        mounted(){
+            this.fetchItems();
+        },
+        methods:{
+            // fetchItems:来发送get请求给服务端来获取mysql中的数据，然后用于展示到页面
+            fetchItems(){
+                axios({
+                    method:'get',
+                    url:'http://localhost:5000/api/items'
+                }).then((response) =>{
+                    // 成功响应的时候去执行的操作
+                    console.log(response.data)
+                    this.items = response.data
+                }).catch((error) => {
+                    console.log('获取数据出错',error)
+                });
+            },
+            // 添加数据，
+            addItem(){
+                axios({
+                    method:'post',
+                    url:'http://localhost:5000/api/items',
+                    data:{name:this.newItem}
+                }).then((response) => {
+                    // 把添加成功的元素添加到items后面
+                    console.log(response.data);
+                    this.items.push(response.data);
+                    // 清空输入框
+                    this.newItem = ''
+                }).catch((error) => {
+                    console.log('添加数据出错',error)
+                });
+            },
+            // 删除数据
+            deleteItem(id){
+                axios({
+                    method:'delete',
+                    url:`http://localhost:5000/api/items/${id}`
+                }).then(()=>{
+                    // 重新查一遍数据
+                    this.fetchItems();
+                }).catch((error) => {
+                    console.log('删除数据出错',error)
+                });
+            },
+            // 修改数据
+            updateNewItems(id){
+                let newName = this.updateItem[id];
+                axios({
+                    method:'put',
+                    url:`http://localhost:5000/api/items/${id}`,
+                    data:{name:newName}
+                }).then(()=>{
+                    this.updateItem[id]=''; // 清空输入框
+                    this.fetchItems(); // 重新调用查方法
+                }).catch((error) => {
+                    console.log('修改数据出错',error)
+                });
+            }
+        }
+    })
+
+    // 作业是自己实现好这个案例，有任何发我
+    // 周六晚上给大家发练习题   ，那我们这个阶段就结束了，把练习题完成好
+    // 下一个阶段是爬虫：请求等等，接口不需要你们懂，能运行就行，后面肯定让自己去写的。
+    // 非常感谢大家两个配合，最后希望每个同学坚持去做，不要复杂其实很简单，老师都在。祝大家后面学有所成！！
+</script>
+</body>
+</html>

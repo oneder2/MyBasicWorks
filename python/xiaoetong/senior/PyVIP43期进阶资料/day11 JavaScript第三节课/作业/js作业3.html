@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>敲木鱼</title>
+    <style>
+        .box1_01 {
+            margin: auto;
+        }
+
+        #gongDe {
+            font-family: 楷体;
+            font-size: 80px;
+            color: red;
+        }
+
+        #vip {
+            /* 50是上下边距  120是左右边距*/
+            margin: 50px 120px;
+            width: 80px;
+            height: 80px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="box1_01">
+    <img id="button" src="https://img.keaitupian.cn/newupload/12/1670919763991586.gif">
+    <br><!-- 图片和按钮都是块级标签 -->
+    <div id="gongDe">
+        功德:
+        <span>0</span>
+    </div>
+    <input type="button" id="vip" value="+1">
+</div>
+
+<script>
+    //     /*实现点击图片,让功德数字+1
+    //     */
+
+
+    // 通过css选择器获取 只会获取到第一个符合选择器标签
+    //获取input标签对象
+    // let inputAuto = document.querySelector('input')
+    // 获取span标签对象
+    // let span = document.querySelector('span')
+    // 第一种方式：
+    // inputAuto.onclick = function () {
+    //     span.innerHTML++
+    // }
+    // 第二种方式：
+    // inputAuto.addEventListener('click', ()=>{
+    //     span.innerHTML++
+    // })
+
+
+    // 拓展
+    let timer;
+    let num = 0;
+    // setTimeout(t,1000) //用来在指定的时间后执行某些代码（函数内的），只会执行一次
+    // // setInterval(t,1000) // 用来在指定的时间后执行某些代码（函数内的），重复执行
+    let vip = document.querySelector('#vip')
+    let span = document.querySelector('span')
+    // 创建一个事件
+    vip.addEventListener('click', () => {
+        if (timer > 0) {
+            // 销毁计时器
+            clearInterval(timer)
+            timer = 0
+            vip.value = '开始'
+        } else {
+            // 创建一个定时器
+            timer = setInterval(() => {
+                num++
+                span.innerHTML = num
+            }, 1000)
+            vip.value = '结束'
+
+        }
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .yeye{
+            width:600px;
+            height: 600px;
+            background-color: hotpink;
+            position: relative;
+            top:100px;
+        }
+        .father {
+            width: 400px;
+            height: 400px;
+            background-color: skyblue;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /*设置定位模式为绝对定位*/
+            position: absolute;
+            top: 400px;
+            /*right:200px;*/
+            right:400px;
+        /*当祖先标签没有定位的时候，后代标签如果用的绝对定位，是基于浏览器来偏移*/
+        /*当祖先标签有定位的时候，他是基于祖先标签就行，偏移的*/
+
+        }
+    </style>
+</head>
+<body>
+<div class="yeye">
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</div>
+</body>
+</html>

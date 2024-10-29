@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单计算器</title>
+</head>
+<body>
+    <h1>简单计算器</h1>
+    <input type="number" id="num1" placeholder="输入第一个数字">
+    <input type="number" id="num2" placeholder="输入第二个数字">
+    <button onclick="calculate()">计算</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const sum = num1 + num2;
+            document.getElementById('result').innerText = `结果: ${sum}`;
+        }
+    </script>
+</body>
+</html>

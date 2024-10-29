@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>敲木鱼</title>
+
+        <style>
+            .box1_01 {
+                margin: auto;
+            }
+
+        #gongDe {
+            font-family: 楷体;
+            font-size: 80px;
+            color: red;
+        }
+
+        #vip {
+                /* 50是上下边距 120是左右边距*/
+                margin: 50px 120px;
+                width: 80px;
+                height: 80px;
+                background-color: green;
+                color: white;
+            }
+
+            #vip:hover {
+                background-color: red;
+            }
+
+            #vip:active {
+                background-color: blue;
+            }
+
+            #vip:focus {
+                background-color: yellow;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="box1_01">
+            <img id="button" src="image.png">
+
+            <br><!-- 图片和按钮都是块级标签 -->
+
+            <div id="gongDe">功德:<span id="span1">0</span></div>
+            <input type="button" id="vip" value="开始">
+        </div>
+
+        <script src="auto.js"></script>
+
+    </body>
+
+</html>
+

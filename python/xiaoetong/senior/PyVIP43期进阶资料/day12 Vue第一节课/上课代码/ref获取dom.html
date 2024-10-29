@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="div5">
+    <!--通过ref来获取这个dom 取名叫domref -->
+    <div ref="domref">
+        我是被操作的dom
+    </div>
+    <button @click="setdom">点击</button>
+    <!--    (通过操控dom的方式 来使div变成红色)-->
+</div>
+<script>
+    // 实例化
+    let div5 = new Vue({
+        el: "#div5",
+        methods: {
+            setdom() {
+                // this.$refs.domref 找到dom domref 然后通过style.color 设置颜色
+                this.$refs.domref.style.color = 'red'
+                this.$refs.domref.style.height = '100px'
+                //在JavaScript中，使用连字符（-）的CSS属性名需要使用驼峰命名法。
+                this.$refs.domref.style.backgroundColor = 'pink'
+            }
+        }
+    })
+
+
+    // 作业两种选择方案：
+    // 1.把上课的案例都写一遍  提交给我
+    // 2.完成今天发的作业
+
+    // 预习下节课
+</script>
+</body>
+</html>

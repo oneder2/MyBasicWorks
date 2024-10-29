@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="停止" onclick="fnstop()">
+<script>
+    // 定时器：根据指定的时间间隔去调用指定的函数
+    function fnshow(name, age) {
+        alert(name + age + '今天星期四');
+    }
+    // 创建一个销毁定时器的函数
+    function fnstop(){
+        clearTimeout(sid);
+    }
+    // 1.setTimeout(定时器要执行的函数，时间间隔，参数)：调用一次
+    // 创建定时器
+    // let tid = setTimeout(fnshow,1000,'李四',12)
+    // clearTimeout:销毁定时器
+    // clearTimeout(tid);
+
+    // 2.setInterval(定时器要执行的函数，时间间隔，参数):重复的调用要执行的指定函数
+    let sid = setInterval(fnshow,3000,'李四',12);
+
+    // 定义一个变量count=0，if
+//     都没有问题的同学，完成一下作业，发挥
+
+
+
+</script>
+</body>
+</html>

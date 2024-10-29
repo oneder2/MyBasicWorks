@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>盒子模型示例</title>
+        <style>
+            .container {
+                width: 400px; /* 内容区域宽度 */
+                height: 500px; /* 内容区域高度 */
+                padding: 15px; /* 内边距 */
+                border: 10px solid black; /* 边框 */
+                margin: 30px; /* 外边距 */
+                background-color: lightyellow; /* 背景颜色 */
+                place-items: centee; /* 同时水平和垂直居中 */
+                border-radius:30px;/* 边角平滑 */
+            }
+            .titleClass{
+              text-align: center;/*文字居中*/
+              font-size : 30px;
+            }
+            .input{
+                width: 300px; /* 输入框宽度为父容器的100% */
+                height = 10px;
+                padding: 10px; /* 内边距 */
+                font-size: 16px; /* 字体大小 */
+                border: 1px solid #ccc; /* 边框样式 */
+                border-radius: 4px; /* 边框圆角 */
+                margin : 0;
+                
+            }
+            .submit{
+                height: 40px; /* 内容区域高度 */
+                width: 350px;
+                padding: 5px; /* 内边距 */
+                border: 3px solid black; /* 边框 */
+                margin: 30px; /* 外边距 */
+                background-color: lightblue; /* 背景颜色 */
+                position: absolut; /* 设置绝对定位 */
+                text-align: center;/*文字居中*/
+                cursor: pointer; /* 鼠标悬停时显示手型 */
+                transition: background-color 0.3s; /* 背景色过渡效果 */
+            }
+            .registerLink{
+                color : blue;
+                text-align: left;
+            }
+            .agreement{
+                color : red;
+            }
+            t1{
+              font-size:25px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+           <p class = "titleClass"><b>登录界面</b></p>
+           <p>
+             账户：<input class = "input" type = "text" placeholder = "请输入用户名">
+          </p>
+           <p>
+             密码：<input class = "input" type = "password" placeholder = "请输入密码">
+          </p>
+              <p>
+             邮箱：<input class = "input" type = "text" placeholder = "请输入用户电子邮件">
+          </p>
+          
+          <button class = "submit">
+             提交
+          </button>
+          <a class = "registerLink" href = "">
+               点击前往注册界面
+          </a>
+          <div>
+               <lable class = "agreement"><input type = "radio" name = "1">已阅读并同意以下服务协议，隐私政策，法律声明，以及客户端服务协议</lable>
+          </div>
+        </div>
+    </body>
+</html>

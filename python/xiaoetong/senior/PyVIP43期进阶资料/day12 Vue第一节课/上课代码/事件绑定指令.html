@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!-- @click:绑定  -->
+<div id="shijian">
+    <button @click="clickNum">+1</button>
+    <h2>{{num}}</h2>
+</div>
+
+<!--document 整个html文档-->
+<script>
+    let app = new Vue({
+        el:'#shijian',
+        data:{
+            num:0
+        },
+        methods:{
+            // clickNum方法：实现num++
+            clickNum(){
+                console.log(this)
+                this.num++
+            }
+        }
+    });
+// # 休息十分钟
+</script>
+</body>
+</html>

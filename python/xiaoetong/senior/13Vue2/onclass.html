@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- 监听器练习 -->
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OnClass</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    </head>
+
+    <body>
+        <div id = "div3">
+            <h1>点击购买按钮，自动计算订单数和总价</h1>
+            <button @click="shopping()">购买</button>
+            <p>订单数：{{ count.money }}</p>
+            <p>总价：{{ all }}</p>
+        </div>
+        <script>
+            let vm = new Vue({
+                el: '#div3',
+                data: {
+                    // count:0
+                    count:{
+                        money:0
+                    }
+                },
+                methods: {
+                    shopping(){
+                        this.count.money ++
+                    }
+                },
+                computed:{
+                    all(){
+                        return this.count.money *10
+                    }
+                },
+                watch: {
+                    count:{
+                        handler(newVal){
+                            console.log("变化之后的值：" + newVal.money)
+                        },
+                        // 开启深度监听，对象里面的属性发生变化
+                        deep:true
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
