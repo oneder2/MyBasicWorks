@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="欢迎访问我们的网站，了解我们的服务和公司信息。">
+    <title>我的网页标题</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 引入外部CSS样式 -->
+</head>
+<body>
+    <header>
+        <h1>欢迎来到我的网站</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="跳转到首页">首页</a></li>
+                <li><a href="about.html" aria-label="了解我们">关于我们</a></li>
+                <li><a href="services.html" aria-label="查看我们的服务">服务</a></li>
+                <li><a href="contact.html" aria-label="联系我们">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>首页</h2>
+            <p>这是首页的内容。欢迎访问我们的网站！</p>
+            <img src="images/welcome.jpg" alt="欢迎图像" />
+        </section>
+    
+        <section id="about">
+            <h2>关于我们</h2>
+            <p>我们是一家致力于提供优质服务的公司，拥有多年的行业经验。</p>
+        </section>
+    
+        <section id="services">
+            <h2>服务</h2>
+            <p>我们提供以下服务：</p>
+            <ul>
+                <li>服务一</li>
+                <li>服务二</li>
+                <li>服务三</li>
+            </ul>
+        </section>
+    
+        <section id="contact">
+            <h2>联系我们</h2>
+            <p>如果您有任何问题，请填写以下表单与我们联系：</p>
+            <form action="submit_form.php" method="post">
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                
+                <label for="email">电子邮件:</label>
+                <input type="email" id="email" name="email" placeholder="请输入您的电子邮件" required>
+                
+                <label for="message">消息:</label>
+                <textarea id="message" name="message" placeholder="请输入您的消息" required></textarea>
+                
+                <button type="submit">发送</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 我的公司. 保留所有权利。</p>
+        <p>地址：某某街道，某某城市</p>
+        <p>电话：123-456-7890</p>
+        <p>关注我们：</p>
+        <ul>
+            <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+            <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
+            <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+2024-11-26 00:45:25 [twisted] CRITICAL: Unhandled error in Deferred:
+2024-11-26 00:45:25 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/utils/misc.py", line 74, in load_object
+    obj = getattr(mod, name)
+          ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'homework.pipelines' has no attribute 'homeworkPipeline'. Did you mean: 'HomeworkPipeline'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/twisted/internet/defer.py", line 2017, in _inlineCallbacks
+    result = context.run(gen.send, result)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/crawler.py", line 152, in crawl
+    self.engine = self._create_engine()
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/crawler.py", line 166, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/engine.py", line 102, in __init__
+    self.scraper: Scraper = Scraper(crawler)
+                            ^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/scraper.py", line 101, in __init__
+    self.itemproc: ItemPipelineManager = itemproc_cls.from_crawler(crawler)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/middleware.py", line 77, in from_crawler
+    return cls._from_settings(crawler.settings, crawler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/middleware.py", line 86, in _from_settings
+    mwcls = load_object(clspath)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/utils/misc.py", line 76, in load_object
+    raise NameError(f"Module '{module}' doesn't define any object named '{name}'")
+NameError: Module 'homework.pipelines' doesn't define any object named 'homeworkPipeline'
+2024-11-26 00:48:40 [scrapy.core.scraper] ERROR: Spider error processing <GET https://careers.tencent.com/tencentcareer/api/post/Query?timestamp=1732598752798&countryId=&cityId=&bgIds=&productId=&categoryId=40001001,40001002,40001003,40001004,40001005,40001006&parentCategoryId=&attrId=1&keyword=&pageIndex=1&pageSize=10&language=zh-cn&area=cn> (referer: None)
+Traceback (most recent call last):
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/utils/defer.py", line 327, in iter_errback
+    yield next(it)
+          ^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/utils/python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/utils/python.py", line 368, in __next__
+    return next(self.data)
+           ^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/spidermiddlewares/referer.py", line 379, in <genexpr>
+    return (self._set_referer(r, response) for r in result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/spidermiddlewares/urllength.py", line 57, in <genexpr>
+    return (r for r in result if self._filter(r, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/spidermiddlewares/depth.py", line 54, in <genexpr>
+    return (r for r in result if self._filter(r, response, spider))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gellar/opt/pyvenv/lib/python3.12/site-packages/scrapy/core/spidermw.py", line 106, in process_sync
+    yield from iterable
+  File "/home/gellar/Desktop/program/python/xiaoetong/crawler/scrapy16-21/scrapy17/homework/homework/spiders/tencent.py", line 19, in parse
+    least_work_year = position["RequireWorkYearName"]
+                      ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'RequireWorkYearName'

@@ -1,5 +1,6 @@
+!bin/bash
  # 设置文件夹路径
-$folderPath = "C:\Users\gella\Desktop\脚本\自动切换桌面\背景图"
+$folderPath = "./set"
  
  
 # 获取文件夹中所有图片的路径
@@ -7,7 +8,7 @@ $images = Get-ChildItem -Path $folderPath -Filter *.jpg | Sort-Object {Get-Rando
 # 初始化计数器
 $wallpaperChangeCount = 0
 # 设置更换壁纸的间隔时间（秒）
-$intervalInSeconds = 2  #  更换壁纸,60*n，即120为2分钟
+$intervalInSeconds = 5  #  更换壁纸,60*n，即120为2分钟
  
 # 加载 User32.dll
 Add-Type @"
